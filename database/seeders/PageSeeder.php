@@ -51,7 +51,7 @@ class PageSeeder extends Seeder
             'section_id' => $upcoming->id,
             'type' => 'header',
             'data' => [
-                'title' => 'Upcoming Game',
+                'title' => 'Alur Cerita Game',
                 'desc' => 'Simak karya mendatang kami dengan cerita mendalam.'
             ]
         ]);
@@ -70,7 +70,31 @@ class PageSeeder extends Seeder
             'section_id' => $upcoming->id,
             'type' => 'text',
             'data' => [
-                'text' => 'Di tengah keputusasaan akan cinta sejati yang tak kunjung datang, Dika—seorang pengembang muda dengan hati yang rapuh—menciptakan dunia simulasi pixel yang indah. Game ini bukan hanya tentang akhir bahagia—tapi tentang perjalanan menerima bahwa tidak semua janji harus ditepati... agar kita bisa tetap hidup dan mencintai.'
+                'text' => 'Dika adalah seorang remaja SMA dengan ambisi besar untuk menjadi programmer hebat yang bisa mengubah dunia. Di sekolah, ia tak pernah jauh dari Kirana si teman dekat yg cerdas dan ceria, lalu secara diam-diam menjadi orang paling penting dalam hidupnya. Bersama Kirana, Dika menuliskan mimpi dan harapan mereka di sebuah buku kecil. Buku itu menjadi saksi bisu janji-janji remaja mereka, petualangan, dan dunia yang ingin mereka ciptakan.'
+            ]
+        ]);
+
+        Block::create([
+            'section_id' => $upcoming->id,
+            'type' => 'text',
+            'data' => [
+                'text' => 'Namun segalanya berubah di suatu pagi yang tragis, Sebuah kebakaran hebat melanda sekolah. Kirana terjebak di dalam ruang kelas yang dilalap api. Dika berusaha menyelamatkannya dengan sekuat tenaga, namun api menyebar terlalu cepat. Ia hanya bisa menyaksikan kepergian orang yang tak sempat ia selamatkan.'
+            ]
+        ]);
+
+        Block::create([
+            'section_id' => $upcoming->id,
+            'type' => 'text',
+            'data' => [
+                'text' => 'Tahun-tahun berlalu, namun luka itu tak pernah benar-benar sembuh. Suatu hari, Dika kembali ke sekolah lamanya. Ia tanpa sengaja masuk ke ruang kelas yang sudah kosong, berdebu, dan penuh kenangan. Di sudut ruangan, ia menemukan kembali buku \'The Promise\' itu. Kulitnya hangus, halamannya rusak, tapi masih ada sebagian yang bisa dibaca. Fragmen-fragmen janji mereka masih ada beberapa yg telah terwujud, namun banyak yang tak sempat dijalani bersama.'
+            ]
+        ]);
+
+        Block::create([
+            'section_id' => $upcoming->id,
+            'type' => 'text',
+            'data' => [
+                'text' => 'Penyesalan yang selama ini terkubur kembali muncul ke permukaan. Dika memutuskan: jika ia tak bisa mengubah masa lalu, maka ia akan menciptakan masa depan yang berbeda. Ia melanjutkan pendidikan hingga S3, mengabdikan seluruh hidupnya untuk satu membangun dunia simulasi bernama Little World. Sebuah dunia digital tempat kenangan bisa hidup kembali, dan janji yang belum terpenuhi bisa ditebus.'
             ]
         ]);
 
@@ -95,7 +119,7 @@ class PageSeeder extends Seeder
             'section_id' => $cuplikan->id,
             'type' => 'header',
             'data' => [
-                'title' => 'Cuplikan Game Kami',
+                'title' => 'Cuplikan Game',
                 'desc' => 'Intip visual dan atmosfer game kami berikut ini.'
             ]
         ]);
@@ -122,7 +146,7 @@ class PageSeeder extends Seeder
             'section_id' => $sosial->id,
             'type' => 'header',
             'data' => [
-                'title' => 'Kunjungi Kami di Sosial Media',
+                'title' => 'Sosial Media',
                 'desc' => 'Terhubung melalui platform pilihan:'
             ]
         ]);
