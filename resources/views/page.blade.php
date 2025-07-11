@@ -22,7 +22,9 @@
     <div class="sakura" style="left:40%;animation-delay:4s;"></div>
     <div class="sakura" style="left:60%;animation-delay:1s;"></div>
     <div class="sakura" style="left:80%;animation-delay:3s;"></div>
-    <div class="screen-effect" id="screen-effect"></div>
+    <div class="screen-effect-container">
+      <div class="screen-effect" id="screen-effect"></div>
+    </div>
   </section>
 
   @foreach ($page->sections as $section)

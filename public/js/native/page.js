@@ -51,10 +51,11 @@ window.onload = typeWriter;
 document.addEventListener('mousemove', e => {
   const now = Date.now()
   if (!window.last || now - window.last > 40) {
-    const s = document.createElement('div')
-    s.className = 'mouse-sakura'
     qEf.style.top = window.scrollY + 'px'
     qEf.style.left = window.scrollX + 'px'
+
+    const s = document.createElement('div')
+    s.className = 'mouse-sakura'
     s.style.left = (e.clientX - 15) + 'px'
     s.style.top = (e.clientY - 15) + 'px'
     qEf.appendChild(s)
@@ -73,8 +74,7 @@ document.addEventListener('mousemove', e => {
         type: "raw",
         data: {
           pos: { x: e.clientX, y: e.clientY },
-          scroll: { x: window.scrollX, y: window.scrollY },
-          screen: { w: window.innerWidth, h: window.innerHeight }
+          scroll: { x: window.scrollX, y: window.scrollY }
         }
       }))
     }
@@ -100,24 +100,11 @@ ws.onclose = () => {
 ws.onmessage = e => {
   try {
     const msg = JSON.parse(e.data)
-    const { pos, scroll, screen } = msg.data || {}
+    const { pos, scroll } = msg.data || {}
 
-    if (msg.type === "raw" && pos && scroll && screen) {
+    if (msg.type === "raw" && pos && scroll) {
       const uid = msg.from
-
-      const absoluteX = pos.x + scroll.x
-      const absoluteY = pos.y + scroll.y
-
-      const ratioX = absoluteX / screen.w
-      const ratioY = absoluteY / screen.h
-
-      const thisAbsoluteX = ratioX * window.innerWidth
-      const thisAbsoluteY = ratioY * window.innerHeight
-
-      const finalX = thisAbsoluteX - window.scrollX
-      const finalY = thisAbsoluteY - window.scrollY
-
-      spawnRemoteSakura(finalX, finalY, uid)
+      spawnRemoteSakura(pos, scroll, uid)
     }
   } catch (err) {
     console.warn("Invalid message:", e.data)
@@ -125,31 +112,30 @@ ws.onmessage = e => {
 }
 
 // Remote Sakura Renderer
-function spawnRemoteSakura(x, y, uid) {
-  let container = document.querySelector(`.remote-effect[data-user="${uid}"]`)
+function spawnRemoteSakura(pos, scroll, uid) {
+  let container = document.getElementById(`sakura-ef-${uid}`)
   if (!container) {
     container = document.createElement('div')
-    container.className = 'remote-effect'
-    container.dataset.user = uid
-    container.style.position = 'absolute'
-    container.style.top = '0'
-    container.style.left = '0'
-    container.style.width = '100vw'
-    container.style.height = '100vh'
-    container.style.pointerEvents = 'none'
-    document.body.appendChild(container)
+    container.className = 'screen-effect'
+    container.id = `sakura-ef-${uid}`
+
+    const parrentContainer = document.querySelector(".screen-effect-container") 
+    parrentContainer.appendChild(container)
   }
 
+  container.style.top = scroll.y + 'px'
+  container.style.left = scroll.x + 'px'
+  
   const s = document.createElement('div')
   s.className = 'mouse-sakura'
-  s.style.left = (x - 15) + 'px'
-  s.style.top = (y - 15) + 'px'
+  s.style.left = (pos.x - 15) + 'px'
+  s.style.top = (pos.y - 15) + 'px'
   container.appendChild(s)
 
   const s2 = document.createElement('div')
   s2.className = 'mouse-sakura-blur'
-  s2.style.left = (x - 90) + 'px'
-  s2.style.top = (y - 90) + 'px'
+  s2.style.left = (pos.x - 90) + 'px'
+  s2.style.top = (pos.y - 90) + 'px'
   container.appendChild(s2)
 
   setTimeout(() => { s.remove(); s2.remove() }, 1200)

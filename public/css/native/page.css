@@ -9,7 +9,6 @@ body {
     font-family: 'Sawarabi Mincho', serif;
     scroll-behavior: smooth;
     overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -127,6 +126,15 @@ section p {
 
 .cta-button:hover {
     background-color: #444;
+}
+
+.screen-effect-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
 }
 
 .screen-effect {
