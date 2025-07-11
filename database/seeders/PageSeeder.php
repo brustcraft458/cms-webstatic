@@ -94,7 +94,7 @@ class PageSeeder extends Seeder
             'section_id' => $upcoming->id,
             'type' => 'text',
             'data' => [
-                'text' => 'Penyesalan yang selama ini terkubur kembali muncul ke permukaan. Dika memutuskan: jika ia tak bisa mengubah masa lalu, maka ia akan menciptakan masa depan yang berbeda. Ia melanjutkan pendidikan hingga S3, mengabdikan seluruh hidupnya untuk satu membangun dunia simulasi bernama Little World. Sebuah dunia digital tempat kenangan bisa hidup kembali, dan janji yang belum terpenuhi bisa ditebus.'
+                'text' => 'Penyesalan yang selama ini terkubur kembali muncul ke permukaan. Dika memutuskan: jika ia tak bisa mengubah masa lalu, maka ia akan menciptakan masa depan yang berbeda. Ia melanjutkan pendidikan hingga S3, mengabdikan seluruh hidupnya untuk membangun dunia simulasi bernama Little World. Sebuah dunia digital tempat kenangan bisa hidup kembali, dan janji yang belum terpenuhi bisa ditebus.'
             ]
         ]);
 
