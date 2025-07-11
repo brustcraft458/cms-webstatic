@@ -76,6 +76,7 @@
     <a href="mailto:support@mojomu.com" style="color:#ddd;">support@mojomu.com</a>
   </footer>
 
+  <script>const WS_URL = "{{ env('WS_URL') }}";</script>
   <script src="{{ url('js/native/page.js') }}"></script>
 
 </body>
